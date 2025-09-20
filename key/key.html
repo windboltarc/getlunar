@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lunar Key</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .neon-container {
+      text-align: center;
+      padding: 50px 80px;
+      border-radius: 20px;
+      border: 2px solid #4d6eff;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px #4d6eff, 0 0 40px #4d6eff, 0 0 60px #4d6eff inset;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      user-select: all;
+    }
+
+    .neon-container:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px #4d6eff, 0 0 60px #4d6eff, 0 0 80px #4d6eff inset;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #4d6eff;
+      text-shadow: 0 0 5px #4d6eff, 0 0 10px #4d6eff, 0 0 20px #4d6eff;
+      margin-bottom: 20px;
+    }
+
+    #key {
+      font-size: 2rem;
+      letter-spacing: 2px;
+      color: #fff;
+      text-shadow: 0 0 5px #fff, 0 0 10px #4d6eff;
+      margin-bottom: 10px;
+      transition: color 0.3s;
+    }
+
+    p {
+      color: #aaa;
+      font-size: 1rem;
+      text-shadow: 0 0 5px #000;
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        text-shadow: 0 0 10px #4d6eff, 0 0 20px #4d6eff, 0 0 30px #4d6eff;
+      }
+      50% {
+        text-shadow: 0 0 20px #4d6eff, 0 0 40px #4d6eff, 0 0 60px #4d6eff;
+      }
+    }
+
+    #key {
+      animation: glow 2s infinite alternate;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="neon-container" onclick="copyKey()">
+    <h1>Lunar Key</h1>
+    <div id="key">LUNAR-110720-EXCL</div>
+    <p>Click anywhere to copy key</p>
+  </div>
+
+  <script>
+    function copyKey() {
+      const keyText = document.getElementById('key').innerText;
+      navigator.clipboard.writeText(keyText).then(() => {
+        alert('Key copied: ' + keyText);
+      });
+    }
+  </script>
+</body>
+
+</html>
